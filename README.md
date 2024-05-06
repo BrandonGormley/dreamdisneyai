@@ -44,6 +44,13 @@ Below is a list of features to be added
 -   Food Preferences
 -   Many more...
 
+## Powered By:
+-   NextJS
+-   React
+-   Vercel
+-   Tailwindcss
+-   Supbase Or Mongodb (when we get there)
+
 ## Contributing
 
 Below is how to contribute
