@@ -1,12 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { Analytics } from '@vercel/analytics/react';
+import Navbar from './components/Navbar';
+
+const rubik = Rubik({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://dreamdisneyai.vercel.app/'),
     title: 'Dream Disney AI',
-    description: 'Meta description here...',
+    description:
+        'Our AI-powered app helps you plan the perfect Disney trip, optimize your park visits, and manage your budget.',
+    openGraph: {
+        url: 'https://dreamdisneyai.vercel.app/',
+        siteName: 'Dream Disney AI',
+        locale: 'en_US',
+        type: 'website',
+    },
 };
 
 export default function RootLayout({
@@ -16,7 +27,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={inter.className}>{children}</body>
+            <body className={rubik.className}>
+                <Navbar />
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 }
