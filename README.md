@@ -49,7 +49,7 @@ Below is a list of features to be added
 -   React
 -   Vercel
 -   Tailwindcss
--   Supbase Or Mongodb (when we get there)
+-   Supabase Or Mongodb (when we get there)
 
 ## Contributing
 
