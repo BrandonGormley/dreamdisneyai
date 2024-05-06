@@ -16,7 +16,7 @@ Our AI-powered app helps you plan the perfect Disney trip, optimize your park vi
 
 ## Installation
 
-Provide step-by-step instructions on how to install and set up your application locally. Include any prerequisites, such as software dependencies or environment setup.
+Run Locally...
 
 ```bash
 git clone https://github.com/BrandonGormley/dreamdisneyai.git
