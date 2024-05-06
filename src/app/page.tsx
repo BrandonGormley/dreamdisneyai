@@ -23,7 +23,7 @@ export default function Home() {
                             budget.
                         </p>
                         <Link
-                            href={'/magic'}
+                            href={'/#'}
                             className='transition bg-gradient-to-r from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand lg:max-w-[200px]'
                         >
                             Let's Make Magic
