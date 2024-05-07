@@ -1,25 +1,54 @@
+'use client';
+import { useState } from 'react';
 import DaySelection from '@/app/components/ui/days/DaySelection';
 
 export default function page() {
+    const [showDaySelector, setShowDaySelector] = useState(true);
+    const [daySelected, setDaySelected] = useState('');
+    const [showFamilySelector, setShowFamilySelector] = useState(false);
+    const [kidsSelected, setKidsSelected] = useState('');
+    const [adultsSelected, setAdultsSelected] = useState('');
+
+    const handleDaySelection = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setDaySelected(event.target.value);
+    };
+    const handleKidsSelection = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setKidsSelected(event.target.value);
+    };
+    const handleAdultsSelection = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setAdultsSelected(event.target.value);
+    };
+
+    const handleShowFamilySelection = () => {
+        setShowFamilySelector(true);
+        setShowDaySelector(false);
+    };
     return (
-        <section className='w-full p-8 py-24 max-w-[1280px] mx-auto'>
-            <div className='flex flex-col lg:flex-row items-center justify-center gap-4 px-4 text-center lg:text-left text-gray-800'>
-                <div className='grid gap-4 lg:px-8'>
-                    <h2 className='animate-fadeIn text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-lightblue via-sand-dark to-yellow bg-clip-text text-transparent mb-4 text-center'>
-                        Welcome Aboard!
-                    </h2>
-                    <p className='max-w-xl text-lg my-2 animate-fadeIn text-gray-800 text-center'>
-                        Pack your imagination and get ready for a journey like
-                        no other! Your Disney escape starts now.
-                    </p>
-                    <p className='max-w-xl text-lg my-2 animate-fadeIn text-gray-800 text-center'>
-                        Before we embark on our adventure to the most magical
-                        place on earth, let's determine how many days we'll be
-                        there!
-                    </p>
-                    <DaySelection />
+        <>
+            {showDaySelector && (
+                <DaySelection
+                    daySelected={daySelected}
+                    handleDaySelection={handleDaySelection}
+                />
+            )}
+            {Number(daySelected) > 0 && (
+                <div className='flex flex-col'>
+                    <p className='text-center mb-6 text-2xl text-gray-600'>{`${daySelected} Days of Magic coming up!`}</p>
+                    <button
+                        onClick={handleShowFamilySelection}
+                        className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'
+                    >
+                        Next
+                    </button>
                 </div>
-            </div>
-        </section>
+            )}
+            {showFamilySelector && <p>Family Time</p>}
+        </>
     );
 }
