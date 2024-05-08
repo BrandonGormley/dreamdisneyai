@@ -9,6 +9,7 @@ interface FamilySelectorProps {
     handleChildrenSelection: (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => void;
+    handleShowParkSelector: () => void;
 }
 
 export default function FamilySelector({
@@ -16,6 +17,7 @@ export default function FamilySelector({
     childrenSelected,
     handleAdultsSelection,
     handleChildrenSelection,
+    handleShowParkSelector,
 }: FamilySelectorProps) {
     return (
         <div className='flex flex-col items-center justify-center animate-fadeIn'>
@@ -80,7 +82,10 @@ export default function FamilySelector({
             {Number(adultsSelected) > 0 && (
                 <div className='flex flex-col animate-fadeIn'>
                     <p className='text-center mb-6 text-2xl text-gray-600'>{`${adultsSelected} adults & ${childrenSelected} children how exciting!`}</p>
-                    <button className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'>
+                    <button
+                        onClick={handleShowParkSelector}
+                        className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'
+                    >
                         Next
                     </button>
                 </div>
