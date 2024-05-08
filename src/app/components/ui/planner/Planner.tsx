@@ -5,6 +5,7 @@ import FamilySelector from './FamilySelector';
 
 export default function Planner() {
     const [daysSelected, setDaysSelected] = useState('');
+    const [monthSelected, setMonthSelected] = useState('');
     const [adultsSelected, setAdultsSelected] = useState('');
     const [childrenSelected, setChildrenSelected] = useState('');
 
@@ -16,13 +17,16 @@ export default function Planner() {
     ) => {
         setDaysSelected(event.target.value);
     };
-
+    const handleMonthSelection = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setMonthSelected(event.target.value);
+    };
     const handleAdultsSelection = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
         setAdultsSelected(event.target.value);
     };
-
     const handleChildrenSelection = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
@@ -38,6 +42,8 @@ export default function Planner() {
             {showDaySelector && (
                 <DaysSelector
                     daysSelected={daysSelected}
+                    monthSelected={monthSelected}
+                    handleMonthSelection={handleMonthSelection}
                     handleDaySelection={handleDaySelection}
                     handleShowFamilySelector={handleShowFamilySelector}
                 />
