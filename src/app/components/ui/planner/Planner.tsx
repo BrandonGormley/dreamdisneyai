@@ -2,15 +2,18 @@
 import { useState } from 'react';
 import DaysSelector from './DaysSelector';
 import FamilySelector from './FamilySelector';
+import ParkSelector from './ParkSelector';
 
 export default function Planner() {
     const [daysSelected, setDaysSelected] = useState('');
     const [monthSelected, setMonthSelected] = useState('');
     const [adultsSelected, setAdultsSelected] = useState('');
     const [childrenSelected, setChildrenSelected] = useState('');
+    const [parksSelected, setParksSelected] = useState([]);
 
     const [showDaySelector, setShowDaySelector] = useState(true);
     const [showFamilySelector, setShowFamilySelector] = useState(false);
+    const [showParkSelected, setShowParkSelector] = useState(false);
 
     const handleDaySelection = (
         event: React.ChangeEvent<HTMLSelectElement>
@@ -36,6 +39,11 @@ export default function Planner() {
         setShowDaySelector(false);
         setShowFamilySelector(true);
     };
+    const handleShowParkSelector = () => {
+        setShowDaySelector(false);
+        setShowFamilySelector(false);
+        setShowParkSelector(true);
+    };
 
     return (
         <section className='my-8'>
@@ -54,8 +62,10 @@ export default function Planner() {
                     childrenSelected={childrenSelected}
                     handleAdultsSelection={handleAdultsSelection}
                     handleChildrenSelection={handleChildrenSelection}
+                    handleShowParkSelector={handleShowParkSelector}
                 />
             )}
+            {showParkSelected && <ParkSelector />}
         </section>
     );
 }
