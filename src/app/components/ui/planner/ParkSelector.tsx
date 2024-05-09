@@ -4,6 +4,8 @@ import { useState } from 'react';
 export default function ParkSelector({ setParksSelected, parksSelected }: any) {
     const [isMkSelected, setIsMkSelected] = useState(false);
     const [isEpcotSelected, setIsEpcotSelected] = useState(false);
+    const [isAkSelected, setIsAkSelected] = useState(false);
+    const [isHwsSelected, setIsHwsSelected] = useState(false);
 
     const handleIsMkSelected = () => {
         if (!isMkSelected) {
@@ -27,6 +29,34 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
         }
 
         setIsEpcotSelected(!isEpcotSelected);
+    };
+
+    const handleIsAkSelected = () => {
+        if (!isAkSelected) {
+            setParksSelected([...parksSelected, 'Animal Kingdom']);
+        } else {
+            setParksSelected(
+                parksSelected.filter(
+                    (park: string) => park !== 'Animal Kingdom'
+                )
+            );
+        }
+
+        setIsAkSelected(!isAkSelected);
+    };
+
+    const handleIsHwsSelected = () => {
+        if (!isHwsSelected) {
+            setParksSelected([...parksSelected, 'Hollywood Studios']);
+        } else {
+            setParksSelected(
+                parksSelected.filter(
+                    (park: string) => park !== 'Hollywood Studios'
+                )
+            );
+        }
+
+        setIsHwsSelected(!isHwsSelected);
     };
 
     return (
@@ -71,7 +101,13 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
                     />
                     <p className='text-xs my-2'>Epcot</p>
                 </div>
-                <div className='flex flex-col justify-center items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isAkSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsAkSelected}
+                >
                     <Image
                         src={'/animal-kingdom-icon.webp'}
                         alt='Animal Kingdom Icon'
@@ -80,7 +116,13 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
                     />
                     <p className='text-xs my-2'>Animal Kingdom</p>
                 </div>
-                <div className='flex flex-col justify-center items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isHwsSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsHwsSelected}
+                >
                     <Image
                         src={'/hollywood-studios-icon.jpeg'}
                         alt='Hollywood Studios Icon'
@@ -126,6 +168,14 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
                     <p className='text-xs my-2'>Disney Cal Adv.</p>
                 </div>
             </div>
+            {parksSelected.length > 0 && (
+                <div className='flex flex-col w-full animate-fadeIn'>
+                    <p className='text-center mb-6 text-2xl text-gray-600'>{``}</p>
+                    <button className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'>
+                        Next
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
