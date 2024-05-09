@@ -1,6 +1,34 @@
 import Image from 'next/image';
+import { useState } from 'react';
 
-export default function ParkSelector() {
+export default function ParkSelector({ setParksSelected, parksSelected }: any) {
+    const [isMkSelected, setIsMkSelected] = useState(false);
+    const [isEpcotSelected, setIsEpcotSelected] = useState(false);
+
+    const handleIsMkSelected = () => {
+        if (!isMkSelected) {
+            setParksSelected([...parksSelected, 'Magic Kingdom']);
+        } else {
+            setParksSelected(
+                parksSelected.filter((park: string) => park !== 'Magic Kingdom')
+            );
+        }
+
+        setIsMkSelected(!isMkSelected);
+    };
+
+    const handleIsEpcotSelected = () => {
+        if (!isEpcotSelected) {
+            setParksSelected([...parksSelected, 'Epcot']);
+        } else {
+            setParksSelected(
+                parksSelected.filter((park: string) => park !== 'Epcot')
+            );
+        }
+
+        setIsEpcotSelected(!isEpcotSelected);
+    };
+
     return (
         <div className='flex flex-col items-center justify-center animate-fadeIn'>
             <p className='max-w-xl text-lg my-2 text-gray-800 text-center'>
@@ -12,8 +40,14 @@ export default function ParkSelector() {
             <p className='max-w-xl text-sm my-2 text-gray-600 text-center'>
                 Please select all that apply to your trip.
             </p>
-            <div className='flex flex-row justify-center items-cente flex-wrap w-full lg:max-w-[60%]'>
-                <div className='flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 '>
+            <div className='flex flex-row justify-center items-center flex-wrap w-full lg:max-w-[60%]'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isMkSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsMkSelected}
+                >
                     <Image
                         src={'/castle-icon.jpeg'}
                         alt='Magic Kingdom Icon'
@@ -22,7 +56,13 @@ export default function ParkSelector() {
                     />
                     <p className='text-xs my-2'>Magic Kingdom</p>
                 </div>
-                <div className='flex flex-col justify-center items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isEpcotSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsEpcotSelected}
+                >
                     <Image
                         src={'/epcot-icon.jpeg'}
                         alt='Epcot Icon'
