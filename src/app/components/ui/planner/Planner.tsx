@@ -65,7 +65,12 @@ export default function Planner() {
                     handleShowParkSelector={handleShowParkSelector}
                 />
             )}
-            {showParkSelected && <ParkSelector />}
+            {showParkSelected && (
+                <ParkSelector
+                    parksSelected={parksSelected}
+                    setParksSelected={setParksSelected}
+                />
+            )}
         </section>
     );
 }
