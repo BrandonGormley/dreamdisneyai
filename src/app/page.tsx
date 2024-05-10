@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 export default function Home() {
     return (
         <>
-            <section className='w-full p-8 max-w-[1280px] mx-auto'>
+            <main className='w-full p-8 max-w-[1280px] mx-auto'>
                 <div className='flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 px-4 text-center lg:text-left text-gray-800'>
                     <div className='grid gap-4 lg:px-8'>
                         <p className='bg-lightblue-light rounded-full max-w-[200px] text-center px-4 py-1 border mx-auto text-xs lg:mr-auto lg:ml-0 text-lightblue-dark border-lightblue'>
@@ -38,7 +38,7 @@ export default function Home() {
                         className='w-full md:w-1/2'
                     />
                 </div>
-            </section>
+            </main>
             <Footer />
         </>
     );
