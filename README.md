@@ -35,11 +35,10 @@ pnpm install
 
 Below is a list of features to be added
 
--   Days of Trip?
--   Adults & Children qty.
--   Which parks you would like to attend?
+-   Days of Trip?✅
+-   Adults & Children qty?✅
+-   Which parks you would like to attend?✅
 -   Which resort or resorts will you be staying at if any?
--   Going to Disney Springs?
 -   Nighttime events?
 -   Food Preferences
 -   Many more...
