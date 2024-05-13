@@ -41,7 +41,7 @@ Below is a list of features to be added
 -   Which resort or resorts will you be staying at if any?
 -   Nighttime events?
 -   Food Preferences
--   Many more...
+-   What type of trip? Relaxed, see everything, ride focused vs food focused...
 
 ## Powered By:
 
