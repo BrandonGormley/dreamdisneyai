@@ -6,6 +6,8 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
     const [isEpcotSelected, setIsEpcotSelected] = useState(false);
     const [isAkSelected, setIsAkSelected] = useState(false);
     const [isHwsSelected, setIsHwsSelected] = useState(false);
+    const [isDsSelected, setIsDsSelected] = useState(false);
+    const [isCruiseSelected, setIsCruiseSelected] = useState(false);
 
     const handleIsMkSelected = () => {
         if (!isMkSelected) {
@@ -57,6 +59,32 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
         }
 
         setIsHwsSelected(!isHwsSelected);
+    };
+
+    const handleIsDsSelected = () => {
+        if (!isDsSelected) {
+            setParksSelected([...parksSelected, 'Disney Springs']);
+        } else {
+            setParksSelected(
+                parksSelected.filter(
+                    (park: string) => park !== 'Disney Springs'
+                )
+            );
+        }
+
+        setIsDsSelected(!isDsSelected);
+    };
+
+    const handleIsCruiseSelected = () => {
+        if (!isCruiseSelected) {
+            setParksSelected([...parksSelected, 'Disney Cruise']);
+        } else {
+            setParksSelected(
+                parksSelected.filter((park: string) => park !== 'Disney Cruise')
+            );
+        }
+
+        setIsCruiseSelected(!isCruiseSelected);
     };
 
     return (
@@ -131,7 +159,13 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
                     />
                     <p className='text-xs my-2'>Hollywood Studios</p>
                 </div>
-                <div className='flex flex-col justify-center items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isCruiseSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsCruiseSelected}
+                >
                     <Image
                         src={'/cruise-icon.jpeg'}
                         alt='Disney Cruise Icon'
@@ -140,7 +174,13 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
                     />
                     <p className='text-xs my-2'>Disney Cruise</p>
                 </div>
-                <div className='flex flex-col justify-center items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300'>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300 ${
+                        isDsSelected &&
+                        'border-green-200 shadow-green-200 shadow-lg'
+                    }`}
+                    onClick={handleIsDsSelected}
+                >
                     <Image
                         src={'/disney-springs-icon.png'}
                         alt='Disney Springs Icon'
