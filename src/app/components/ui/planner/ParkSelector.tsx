@@ -250,7 +250,7 @@ export default function ParkSelector({ setParksSelected, parksSelected }: any) {
             </div>
             {parksSelected.length > 0 && (
                 <div className='flex flex-col w-full animate-fadeIn'>
-                    <p className='text-center mb-6 text-2xl text-gray-600'>{``}</p>
+                    <p className='text-center mb-6 text-2xl text-gray-600 my-4'>{`Looks like you will be going to ${parksSelected.length} different parks, how exciting!`}</p>
                     <button className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'>
                         Next
                     </button>
