@@ -40,6 +40,7 @@ export default function FamilySelector({
                         id='adults'
                         className='mx-2 text-lg text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500'
                     >
+                        <option value='amount'>adults</option>
                         <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -65,6 +66,7 @@ export default function FamilySelector({
                         id=''
                         className='mx-2 text-lg text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500'
                     >
+                        <option value='amount'>children</option>
                         <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -81,7 +83,11 @@ export default function FamilySelector({
             </div>
             {Number(adultsSelected) > 0 && (
                 <div className='flex flex-col animate-fadeIn'>
-                    <p className='text-center mb-6 text-2xl text-gray-600'>{`${adultsSelected} adults & ${childrenSelected} children how exciting!`}</p>
+                    <p className='text-center mb-6 text-2xl text-gray-600'>{`${adultsSelected} adults & ${
+                        childrenSelected === '1'
+                            ? '1 child'
+                            : `${childrenSelected} children`
+                    } how exciting!`}</p>
                     <button
                         onClick={handleShowParkSelector}
                         className='transition bg-gradient-to-r text-center from-lightblue to-lightblue-dark text-white px-8 py-3 rounded-full hover:shadow-md hover:shadow-sand mx-auto w-full max-w-[200px]'
