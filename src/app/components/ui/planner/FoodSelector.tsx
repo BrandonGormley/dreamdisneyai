@@ -11,7 +11,7 @@ export default function FoodSelector() {
             </p>
 
             <p className='max-w-xl text-sm my-2 text-gray-600 text-center'>
-                Please select all that food types for your trip.
+                Please select all the food types that apply to your trip.
             </p>
             <div className='flex flex-row justify-center items-center flex-wrap w-full lg:max-w-[60%]'>
                 <div
