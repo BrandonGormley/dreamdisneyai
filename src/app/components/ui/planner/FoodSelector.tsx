@@ -51,6 +51,17 @@ export default function FoodSelector() {
                     className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300`}
                 >
                     <Image
+                        src={'/seafood-food.png'}
+                        alt='Seafood Food Icon'
+                        width={50}
+                        height={50}
+                    />
+                    <p className='text-xs my-2'>Seafood</p>
+                </div>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300`}
+                >
+                    <Image
                         src={'/snacks-food.png'}
                         alt='Snacks Icon'
                         width={50}
