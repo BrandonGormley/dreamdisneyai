@@ -84,6 +84,17 @@ export default function FoodSelector() {
                     className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300`}
                 >
                     <Image
+                        src={'/vegan-food.png'}
+                        alt='Vegan Icon'
+                        width={50}
+                        height={50}
+                    />
+                    <p className='text-xs my-2'>Vegan Friendly</p>
+                </div>
+                <div
+                    className={`flex flex-col justify-start items-center p-2 rounded-lg border border-gray-200 shadow-md m-2 w-32 hover:scale-105 transition-all cursor-pointer duration-300`}
+                >
+                    <Image
                         src={'/drinks.png'}
                         alt='Drinks Icon'
                         width={50}
